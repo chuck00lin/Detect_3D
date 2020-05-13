@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>detect_3d</class>
+ <widget class="QMainWindow" name="detect_3d">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1182</width>
+    <height>505</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>detect_3d</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="point_cloud">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>341</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Draw Point cloud</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="state">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>1001</width>
+      <height>241</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="epipolar">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>170</y>
+      <width>341</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Epipolar Geometry</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>30</y>
+      <width>331</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Camera Pose</string>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>19</y>
+       <width>311</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="1" colspan="2">
+       <widget class="QSpinBox" name="scale">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>200</number>
+        </property>
+        <property name="value">
+         <number>10</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Frame</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" colspan="2">
+       <widget class="QSpinBox" name="frame">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>50</number>
+        </property>
+        <property name="value">
+         <number>5</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Scale</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Save Path: </string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="pose_save"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QCheckBox" name="save_pose">
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="3">
+       <widget class="QPushButton" name="camera_pose">
+        <property name="text">
+         <string>Camera pose</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>341</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Get Distance</string>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>19</y>
+       <width>321</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>ybias</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="save_path"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QCheckBox" name="save">
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Distance Save Path:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" colspan="2">
+       <widget class="QDoubleSpinBox" name="y_bias">
+        <property name="value">
+         <double>5.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="3">
+       <widget class="QPushButton" name="distance">
+        <property name="text">
+         <string>Get Distance</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="fast_track">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>90</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Faster Tracking</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="save_iou">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>68</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save IOU Info.</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="depth_data">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>120</y>
+      <width>151</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Track with Depth data</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="depth_filter">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>150</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Depth Filter</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1182</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuExit">
+    <property name="title">
+     <string>Exit</string>
+    </property>
+    <addaction name="actionexit"/>
+   </widget>
+   <addaction name="menuExit"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionexit">
+   <property name="text">
+    <string>exit</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
