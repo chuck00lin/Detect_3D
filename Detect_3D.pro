@@ -24,22 +24,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 ###REALSENSE###
-#INCLUDEPATH += $$quote(C:\Program Files (x86)\Intel RealSense SDK 2.0\include)
-#LIBS += $$quote(C:\Program Files (x86)\Intel RealSense SDK 2.0\lib\x64\realsense2.lib)
-#HEADERS += $$quote(C:\Program Files (x86)\Intel RealSense SDK 2.0\third-party)
+INCLUDEPATH += $$quote(C:\Program Files (x86)\Intel RealSense SDK 2.0\include)
+LIBS += $$quote(C:\Program Files (x86)\Intel RealSense SDK 2.0\lib\x64\realsense2.lib)
+HEADERS += example_window.hpp \
+        cvhelpers.hpp \
+        feature_function.hpp \
+        offline_tracking.hpp \
+        detect_with_depth.hpp
 
 #INCLUDEPATH += C:/intel_realsense_SDK2.0_2.10.4_modify/include
-INCLUDEPATH += F:/Qt_pro_include/G_drive/intel_reslsense_SDK2.16.5/include
+#INCLUDEPATH += F:/Qt_pro_include/G_drive/intel_reslsense_SDK2.16.5/include
 #HEADERS += F:/Qt_pro_include/G_drive/intel_reslsense_SDK2.16.5/src/
-LIBS += F:/Qt_pro_include/G_drive/intel_reslsense_SDK2.16.5/lib/realsense2.lib
+#LIBS += F:/Qt_pro_include/G_drive/intel_reslsense_SDK2.16.5/lib/realsense2.lib
 
 #HEADERS += C:/intel_realsense_SDK2.0_2.10.4_modify/src/ \
-HEADERS += F:/Qt_pro_include/G_drive/intel_reslsense_SDK2.16.5/src/ \
-    example_window.hpp \
-    cvhelpers.hpp \
-    feature_function.hpp \
-    offline_tracking.hpp \
-    detect_with_depth.hpp
+#HEADERS += F:/Qt_pro_include/G_drive/intel_reslsense_SDK2.16.5/src/ \
+#    example_window.hpp \
+#    cvhelpers.hpp \
+#    feature_function.hpp \
+#    offline_tracking.hpp \
+#    detect_with_depth.hpp
 
 #LIBS += C:/intel_realsense_SDK2.0_2.10.4_modify/lib/realsense2.lib
 

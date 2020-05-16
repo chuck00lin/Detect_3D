@@ -118,3 +118,53 @@ Erase-ID
 
 total_fruit.size() = 0
 
+======= Tracking Result =======
+Video: F:/Fruit_harvest/Raw_data/2020419_fake_tomato_nano/20200506_213814.bag
+Online-tracking
+total_fruit.size() = 0
+
+Offline-tracking
+Erase-ID
+
+total_fruit.size() = 0
+
+======= Tracking Result =======
+Video: F:/Fruit_harvest/Raw_data/2020315_fake_tomato_rpi/20200313_232003.bag
+Online-tracking
+total_fruit.size() = 0
+
+Offline-tracking
+Erase-ID
+
+total_fruit.size() = 0
+
+======= Tracking Result =======
+Video: F:/Fruit_harvest/Raw_data/2020314_fake_tomato_test/20200314_132033.bag
+Online-tracking
+total_fruit.size() = 6
+
+Offline-tracking
+Erase-ID
+1, 7, 8, 
+total_fruit.size() = 3
+
+======= Tracking Result =======
+Video: F:/Fruit_harvest/Raw_data/2020419_fake_tomato_nano/20200509_230925.bag
+Online-tracking
+total_fruit.size() = 5
+
+Offline-tracking
+Erase-ID
+1, 2, 5, 
+total_fruit.size() = 2
+
+======= Tracking Result =======
+Video: F:/Fruit_harvest/Raw_data/2020419_fake_tomato_nano/20200509_230925.bag
+Online-tracking
+total_fruit.size() = 5
+
+Offline-tracking
+Erase-ID
+1, 2, 5, 
+total_fruit.size() = 2
+

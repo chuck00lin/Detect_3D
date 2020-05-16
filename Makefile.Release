@@ -16,10 +16,10 @@ CXX           = cl
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG
 CFLAGS        = -nologo -Zc:wchar_t -FS -Zc:strictStrings -std=c++11 -O2 -MD -W3 -w44456 -w44457 -w44458 $(DEFINES)
 CXXFLAGS      = -nologo -Zc:wchar_t -FS -Zc:strictStrings -std=c++11 -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -EHsc $(DEFINES)
-INCPATH       = -I. -IF:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include -I..\..\lib\opencv_4.1.1\include -I..\..\lib\opencv_4.1.1\include\opencv2 -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include" -IF:\Qt_pro_include\C_drive\yolov2_x64_vc2015\src -I..\..\programfile\qt\5.12.6\msvc2017_64\include -I..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets -I..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui -I..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE -I..\..\programfile\qt\5.12.6\msvc2017_64\include\QtCore -Irelease -I. -I/include -I..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\win32-msvc 
+INCPATH       = -I. -I"C:\Program Files (x86)\Intel RealSense SDK 2.0\include" -I..\..\lib\opencv_4.1.1\include -I..\..\lib\opencv_4.1.1\include\opencv2 -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include" -IF:\Qt_pro_include\C_drive\yolov2_x64_vc2015\src -I..\..\programfile\qt\5.12.6\msvc2017_64\include -I..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets -I..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui -I..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE -I..\..\programfile\qt\5.12.6\msvc2017_64\include\QtCore -Irelease -I. -I/include -I..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\win32-msvc 
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /INCREMENTAL:NO /SUBSYSTEM:WINDOWS "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'"
-LIBS          = F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\lib\realsense2.lib F:\Qt_pro_include\C_drive\intel_realsense_SDK2.0_2.10.4_modify\lib\glfw3dll.lib F:\Qt_pro_include\C_drive\intel_realsense_SDK2.0_2.10.4_modify\lib\glfw3dll.exp F:\Qt_pro_include\C_drive\intel_realsense_SDK2.0_2.10.4_modify\lib\glfw3.lib opengl32.lib glu32.lib D:\lib\opencv_4.1.1\x64\vc15\lib\opencv_world411.lib F:\Qt_pro_include\C_drive\yolov2_x64_vc2015\lib_dll\yolo_cpp_dll.lib D:\programfile\qt\5.12.6\msvc2017_64\lib\Qt5Widgets.lib D:\programfile\qt\5.12.6\msvc2017_64\lib\Qt5Gui.lib D:\programfile\qt\5.12.6\msvc2017_64\lib\Qt5Core.lib  D:\programfile\qt\5.12.6\msvc2017_64\lib\qtmain.lib /LIBPATH:C:\openssl\lib /LIBPATH:C:\Utils\my_sql\mysql-5.6.11-winx64\lib /LIBPATH:C:\Utils\postgresql\pgsql\lib shell32.lib 
+LIBS          = "C:\Program Files (x86)\Intel RealSense SDK 2.0\lib\x64\realsense2.lib" F:\Qt_pro_include\C_drive\intel_realsense_SDK2.0_2.10.4_modify\lib\glfw3dll.lib F:\Qt_pro_include\C_drive\intel_realsense_SDK2.0_2.10.4_modify\lib\glfw3dll.exp F:\Qt_pro_include\C_drive\intel_realsense_SDK2.0_2.10.4_modify\lib\glfw3.lib opengl32.lib glu32.lib D:\lib\opencv_4.1.1\x64\vc15\lib\opencv_world411.lib F:\Qt_pro_include\C_drive\yolov2_x64_vc2015\lib_dll\yolo_cpp_dll.lib D:\programfile\qt\5.12.6\msvc2017_64\lib\Qt5Widgets.lib D:\programfile\qt\5.12.6\msvc2017_64\lib\Qt5Gui.lib D:\programfile\qt\5.12.6\msvc2017_64\lib\Qt5Core.lib  D:\programfile\qt\5.12.6\msvc2017_64\lib\qtmain.lib /LIBPATH:C:\openssl\lib /LIBPATH:C:\Utils\my_sql\mysql-5.6.11-winx64\lib /LIBPATH:C:\Utils\postgresql\pgsql\lib shell32.lib 
 QMAKE         = D:\programfile\qt\5.12.6\msvc2017_64\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -57,8 +57,7 @@ OBJECTS       = release\main.obj \
 		release\moc_detect_with_depth.obj \
 		release\moc_detect_3d.obj
 
-DIST          =  F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\src \
-		example_window.hpp \
+DIST          =  example_window.hpp \
 		cvhelpers.hpp \
 		feature_function.hpp \
 		offline_tracking.hpp \
@@ -132,7 +131,7 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) Detect_3D.zip $(SOURCES) $(DIST) Detect_3D.pro ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\spec_pre.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\common\angle.conf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\common\windows-vulkan.conf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\common\msvc-desktop.conf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\qconfig.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3danimation.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dcore.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dextras.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dinput.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dlogic.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquick.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3drender.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3drender_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_axbase.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_axbase_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_axcontainer.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_axserver.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_axserver_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_bluetooth.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_charts.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_charts_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_core.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_core_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_datavisualization.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_datavisualization_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_dbus.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_designer.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_edid_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_gamepad.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_gui.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_help.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_help_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_location.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_location_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_multimedia.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_network.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_network_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_networkauth.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_networkauth_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_nfc.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_nfc_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_opengl.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_openglextensions.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_positioning.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_positioning_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_positioningquick.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_positioningquick_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qml.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quick.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_repparser.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_repparser_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_script.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_script_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_scripttools.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_scxml.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_scxml_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_sensors.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_sensors_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_serialbus.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_serialport.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_serialport_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_sql.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_svg.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_testlib.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_texttospeech.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_uitools.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_vulkan_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webchannel.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webengine.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webengine_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webenginecore.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webenginecore_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webenginecoreheaders_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webenginewidgets.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webenginewidgets_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_websockets.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_websockets_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webview.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webview_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_widgets.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_winextras.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_winextras_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_xml.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\qt_functions.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\qt_config.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\win32-msvc\qmake.conf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\exclusive_builds.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\common\msvc-version.conf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\toolchain.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\default_pre.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\win32\default_pre.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\resolve_config.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\exclusive_builds_post.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\default_post.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\build_pass.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\link_pkgconfig.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\resources.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\qtquickcompiler.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\precompile_header.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\warn_on.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\qt.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\moc.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\win32\opengl.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\uic.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\qmake_use.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\file_copies.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\win32\windows.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\testcase_targets.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\exceptions.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\yacc.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\lex.prf Detect_3D.pro ..\..\programfile\qt\5.12.6\msvc2017_64\lib\Qt5Widgets.prl ..\..\programfile\qt\5.12.6\msvc2017_64\lib\Qt5Gui.prl ..\..\programfile\qt\5.12.6\msvc2017_64\lib\Qt5Core.prl ..\..\programfile\qt\5.12.6\msvc2017_64\lib\qtmain.prl      ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\data\dummy.cpp F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\src example_window.hpp cvhelpers.hpp feature_function.hpp offline_tracking.hpp detect_with_depth.hpp detect_3d.hpp  main.cpp detect_3d.cpp detect_with_depth.cpp detect_3d.ui    
+	$(ZIP) Detect_3D.zip $(SOURCES) $(DIST) Detect_3D.pro ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\spec_pre.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\common\angle.conf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\common\windows-vulkan.conf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\common\msvc-desktop.conf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\qconfig.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3danimation.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dcore.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dextras.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dinput.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dlogic.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquick.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3drender.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_3drender_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_axbase.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_axbase_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_axcontainer.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_axserver.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_axserver_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_bluetooth.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_charts.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_charts_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_core.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_core_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_datavisualization.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_datavisualization_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_dbus.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_designer.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_edid_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_gamepad.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_gui.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_help.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_help_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_location.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_location_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_multimedia.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_network.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_network_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_networkauth.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_networkauth_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_nfc.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_nfc_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_opengl.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_openglextensions.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_positioning.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_positioning_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_positioningquick.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_positioningquick_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qml.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quick.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_repparser.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_repparser_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_script.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_script_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_scripttools.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_scxml.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_scxml_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_sensors.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_sensors_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_serialbus.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_serialport.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_serialport_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_sql.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_svg.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_testlib.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_texttospeech.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_uitools.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_vulkan_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webchannel.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webengine.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webengine_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webenginecore.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webenginecore_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webenginecoreheaders_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webenginewidgets.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webenginewidgets_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_websockets.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_websockets_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webview.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_webview_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_widgets.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_winextras.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_winextras_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_xml.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\qt_functions.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\qt_config.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\win32-msvc\qmake.conf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\exclusive_builds.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\common\msvc-version.conf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\toolchain.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\default_pre.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\win32\default_pre.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\resolve_config.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\exclusive_builds_post.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\default_post.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\build_pass.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\link_pkgconfig.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\resources.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\qtquickcompiler.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\precompile_header.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\warn_on.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\qt.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\moc.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\win32\opengl.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\uic.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\qmake_use.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\file_copies.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\win32\windows.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\testcase_targets.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\exceptions.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\yacc.prf ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\lex.prf Detect_3D.pro ..\..\programfile\qt\5.12.6\msvc2017_64\lib\Qt5Widgets.prl ..\..\programfile\qt\5.12.6\msvc2017_64\lib\Qt5Gui.prl ..\..\programfile\qt\5.12.6\msvc2017_64\lib\Qt5Core.prl ..\..\programfile\qt\5.12.6\msvc2017_64\lib\qtmain.prl      ..\..\programfile\qt\5.12.6\msvc2017_64\mkspecs\features\data\dummy.cpp example_window.hpp cvhelpers.hpp feature_function.hpp offline_tracking.hpp detect_with_depth.hpp detect_3d.hpp  main.cpp detect_3d.cpp detect_with_depth.cpp detect_3d.ui    
 
 clean: compiler_clean 
 	-$(DEL_FILE) release\main.obj release\detect_3d.obj release\detect_with_depth.obj release\moc_detect_with_depth.obj release\moc_detect_3d.obj
@@ -277,26 +276,28 @@ release\moc_detect_with_depth.cpp: detect_with_depth.hpp \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qtouchdevice.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qicon.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rs.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rs.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_types.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_context.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_device.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_sensor.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_frame.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_option.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_processing.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_record_playback.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_types.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_pipeline.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_context.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_record_playback.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_device.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_sensor.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_frame.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_processing.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_pipeline.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rsutil.h \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rs.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rs.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_types.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_context.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_device.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_sensor.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_frame.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_option.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_processing.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_record_playback.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_types.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_pipeline.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_config.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_context.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_record_playback.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_device.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_sensor.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_frame.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_processing.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_options.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_pipeline.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rsutil.h" \
 		..\..\lib\opencv_4.1.1\include\opencv2\opencv.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\opencv_modules.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\core.hpp \
@@ -434,7 +435,7 @@ release\moc_detect_with_depth.cpp: detect_with_depth.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\core\types_c.h \
 		..\..\lib\opencv_4.1.1\include\opencv2\imgproc\imgproc_c.h \
 		..\..\lib\opencv_4.1.1\include\opencv2\imgproc\types_c.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\GLFW\glfw3.h \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\GLFW\glfw3.h" \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\GLES2\gl2.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\GLES2\gl2platform.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\KHR\khrplatform.h \
@@ -455,7 +456,7 @@ release\moc_detect_with_depth.cpp: detect_with_depth.hpp \
 		detect_with_depth.hpp \
 		release\moc_predefs.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\bin\moc.exe
-	D:\programfile\qt\5.12.6\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include D:/qtcode/Detect_3D/release/moc_predefs.h -ID:/programfile/qt/5.12.6/msvc2017_64/mkspecs/win32-msvc -ID:/qtcode/Detect_3D -IF:/Qt_pro_include/G_drive/intel_reslsense_SDK2.16.5/include -ID:/lib/opencv_4.1.1/include -ID:/lib/opencv_4.1.1/include/opencv2 -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.1/include" -IF:/Qt_pro_include/C_drive/yolov2_x64_vc2015/src -ID:/programfile/qt/5.12.6/msvc2017_64/include -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtWidgets -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtGui -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtANGLE -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\winrt" detect_with_depth.hpp -o release\moc_detect_with_depth.cpp
+	D:\programfile\qt\5.12.6\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include D:/qtcode/Detect_3D/release/moc_predefs.h -ID:/programfile/qt/5.12.6/msvc2017_64/mkspecs/win32-msvc -ID:/qtcode/Detect_3D -I"C:/Program Files (x86)/Intel RealSense SDK 2.0/include" -ID:/lib/opencv_4.1.1/include -ID:/lib/opencv_4.1.1/include/opencv2 -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.1/include" -IF:/Qt_pro_include/C_drive/yolov2_x64_vc2015/src -ID:/programfile/qt/5.12.6/msvc2017_64/include -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtWidgets -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtGui -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtANGLE -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\winrt" detect_with_depth.hpp -o release\moc_detect_with_depth.cpp
 
 release\moc_detect_3d.cpp: detect_3d.hpp \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QMainWindow \
@@ -564,25 +565,27 @@ release\moc_detect_3d.cpp: detect_3d.hpp \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qtouchdevice.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qicon.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rs.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rs.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_types.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_context.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_device.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_sensor.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_frame.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_option.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_processing.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_record_playback.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_types.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_pipeline.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_context.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_record_playback.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_device.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_sensor.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_frame.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_processing.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_pipeline.hpp \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rs.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rs.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_types.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_context.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_device.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_sensor.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_frame.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_option.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_processing.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_record_playback.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_types.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_pipeline.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_config.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_context.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_record_playback.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_device.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_sensor.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_frame.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_processing.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_options.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_pipeline.hpp" \
 		..\..\lib\opencv_4.1.1\include\opencv2\opencv.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\opencv_modules.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\core.hpp \
@@ -720,7 +723,7 @@ release\moc_detect_3d.cpp: detect_3d.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\core\types_c.h \
 		..\..\lib\opencv_4.1.1\include\opencv2\imgproc\imgproc_c.h \
 		..\..\lib\opencv_4.1.1\include\opencv2\imgproc\types_c.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\GLFW\glfw3.h \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\GLFW\glfw3.h" \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\GLES2\gl2.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\GLES2\gl2platform.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\KHR\khrplatform.h \
@@ -740,11 +743,11 @@ release\moc_detect_3d.cpp: detect_3d.hpp \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtCore\qelapsedtimer.h \
 		detect_with_depth.hpp \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtCore\QObject \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rsutil.h \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rsutil.h" \
 		detect_3d.hpp \
 		release\moc_predefs.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\bin\moc.exe
-	D:\programfile\qt\5.12.6\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include D:/qtcode/Detect_3D/release/moc_predefs.h -ID:/programfile/qt/5.12.6/msvc2017_64/mkspecs/win32-msvc -ID:/qtcode/Detect_3D -IF:/Qt_pro_include/G_drive/intel_reslsense_SDK2.16.5/include -ID:/lib/opencv_4.1.1/include -ID:/lib/opencv_4.1.1/include/opencv2 -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.1/include" -IF:/Qt_pro_include/C_drive/yolov2_x64_vc2015/src -ID:/programfile/qt/5.12.6/msvc2017_64/include -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtWidgets -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtGui -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtANGLE -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\winrt" detect_3d.hpp -o release\moc_detect_3d.cpp
+	D:\programfile\qt\5.12.6\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include D:/qtcode/Detect_3D/release/moc_predefs.h -ID:/programfile/qt/5.12.6/msvc2017_64/mkspecs/win32-msvc -ID:/qtcode/Detect_3D -I"C:/Program Files (x86)/Intel RealSense SDK 2.0/include" -ID:/lib/opencv_4.1.1/include -ID:/lib/opencv_4.1.1/include/opencv2 -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.1/include" -IF:/Qt_pro_include/C_drive/yolov2_x64_vc2015/src -ID:/programfile/qt/5.12.6/msvc2017_64/include -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtWidgets -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtGui -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtANGLE -ID:/programfile/qt/5.12.6/msvc2017_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\winrt" detect_3d.hpp -o release\moc_detect_3d.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -876,25 +879,27 @@ release\main.obj: main.cpp detect_3d.hpp \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qtouchdevice.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qicon.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rs.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rs.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_types.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_context.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_device.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_sensor.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_frame.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_option.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_processing.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_record_playback.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_types.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_pipeline.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_context.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_record_playback.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_device.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_sensor.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_frame.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_processing.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_pipeline.hpp \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rs.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rs.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_types.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_context.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_device.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_sensor.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_frame.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_option.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_processing.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_record_playback.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_types.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_pipeline.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_config.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_context.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_record_playback.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_device.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_sensor.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_frame.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_processing.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_options.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_pipeline.hpp" \
 		..\..\lib\opencv_4.1.1\include\opencv2\opencv.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\opencv_modules.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\core.hpp \
@@ -1032,7 +1037,7 @@ release\main.obj: main.cpp detect_3d.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\core\types_c.h \
 		..\..\lib\opencv_4.1.1\include\opencv2\imgproc\imgproc_c.h \
 		..\..\lib\opencv_4.1.1\include\opencv2\imgproc\types_c.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\GLFW\glfw3.h \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\GLFW\glfw3.h" \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\GLES2\gl2.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\GLES2\gl2platform.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\KHR\khrplatform.h \
@@ -1052,7 +1057,7 @@ release\main.obj: main.cpp detect_3d.hpp \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtCore\qelapsedtimer.h \
 		detect_with_depth.hpp \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtCore\QObject \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rsutil.h \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rsutil.h" \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QApplication \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qapplication.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtCore\qcoreapplication.h \
@@ -1168,25 +1173,27 @@ release\detect_3d.obj: detect_3d.cpp detect_3d.hpp \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qtouchdevice.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qicon.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rs.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rs.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_types.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_context.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_device.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_sensor.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_frame.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_option.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_processing.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_record_playback.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_types.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_pipeline.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_context.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_record_playback.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_device.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_sensor.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_frame.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_processing.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_pipeline.hpp \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rs.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rs.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_types.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_context.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_device.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_sensor.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_frame.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_option.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_processing.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_record_playback.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_types.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_pipeline.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_config.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_context.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_record_playback.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_device.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_sensor.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_frame.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_processing.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_options.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_pipeline.hpp" \
 		..\..\lib\opencv_4.1.1\include\opencv2\opencv.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\opencv_modules.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\core.hpp \
@@ -1324,7 +1331,7 @@ release\detect_3d.obj: detect_3d.cpp detect_3d.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\core\types_c.h \
 		..\..\lib\opencv_4.1.1\include\opencv2\imgproc\imgproc_c.h \
 		..\..\lib\opencv_4.1.1\include\opencv2\imgproc\types_c.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\GLFW\glfw3.h \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\GLFW\glfw3.h" \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\GLES2\gl2.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\GLES2\gl2platform.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\KHR\khrplatform.h \
@@ -1344,10 +1351,62 @@ release\detect_3d.obj: detect_3d.cpp detect_3d.hpp \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtCore\qelapsedtimer.h \
 		detect_with_depth.hpp \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtCore\QObject \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rsutil.h \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rsutil.h" \
 		ui_detect_3d.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtCore\QVariant \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QAction \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qaction.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qactiongroup.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QApplication \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qapplication.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtCore\qcoreapplication.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtCore\qeventloop.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qguiapplication.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qinputmethod.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QCheckBox \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qcheckbox.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qabstractbutton.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QDoubleSpinBox \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qspinbox.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qabstractspinbox.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qvalidator.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtCore\qregularexpression.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QGridLayout \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qgridlayout.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qlayout.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qlayoutitem.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qboxlayout.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QGroupBox \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qgroupbox.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qframe.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QLabel \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qlabel.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QLineEdit \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qlineedit.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qtextcursor.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qtextformat.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qpen.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qtextoption.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QMenu \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qmenu.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QMenuBar \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qmenubar.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QPushButton \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qpushbutton.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QSpinBox \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QStatusBar \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qstatusbar.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QTextBrowser \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qtextbrowser.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qtextedit.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qabstractscrollarea.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qtextdocument.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QToolBar \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qtoolbar.h \
+		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\QWidget \
 		example_window.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\third-party\stb_easy_font.h \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\third-party\stb_easy_font.h" \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\QList \
 		cvhelpers.hpp \
 		feature_function.hpp \
@@ -1466,26 +1525,28 @@ release\detect_with_depth.obj: detect_with_depth.cpp detect_with_depth.hpp \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qtouchdevice.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtGui\qicon.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rs.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rs.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_types.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_context.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_device.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_sensor.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_frame.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_option.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_processing.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_record_playback.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_types.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\h\rs_pipeline.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_context.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_record_playback.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_device.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_sensor.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_frame.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_processing.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\hpp\rs_pipeline.hpp \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\librealsense2\rsutil.h \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rs.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rs.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_types.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_context.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_device.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_sensor.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_frame.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_option.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_processing.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_record_playback.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_types.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_pipeline.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\h\rs_config.h" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_context.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_record_playback.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_device.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_sensor.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_frame.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_processing.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_options.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\hpp\rs_pipeline.hpp" \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\librealsense2\rsutil.h" \
 		..\..\lib\opencv_4.1.1\include\opencv2\opencv.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\opencv_modules.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\core.hpp \
@@ -1623,7 +1684,7 @@ release\detect_with_depth.obj: detect_with_depth.cpp detect_with_depth.hpp \
 		..\..\lib\opencv_4.1.1\include\opencv2\core\types_c.h \
 		..\..\lib\opencv_4.1.1\include\opencv2\imgproc\imgproc_c.h \
 		..\..\lib\opencv_4.1.1\include\opencv2\imgproc\types_c.h \
-		F:\Qt_pro_include\G_drive\intel_reslsense_SDK2.16.5\include\GLFW\glfw3.h \
+		"C:\Program Files (x86)\Intel RealSense SDK 2.0\include\GLFW\glfw3.h" \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\GLES2\gl2.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\GLES2\gl2platform.h \
 		..\..\programfile\qt\5.12.6\msvc2017_64\include\QtANGLE\KHR\khrplatform.h \

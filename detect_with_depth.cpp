@@ -685,7 +685,7 @@ void detect_with_depth::run(){
             cv::Mat maturity_mat = color_mat.clone();
             if(draw_mat.empty())   break;
 
-            if((frame > 2) && (frame%1 == 0)){
+            if((frame > 80) && (frame%1 == 0)){
 
                 threshold_vec.clear();
                 curr_mat = color_mat.clone();
@@ -736,8 +736,17 @@ void detect_with_depth::run(){
 
                 // Calculate and Draw tracked previous point
                 qDebug() << "estimate rigid transform";
-                cv::Mat rigid_trans = cv::estimateRigidTransform(prev_point, curr_point, false);
-                Homo_history.append(rigid_trans);
+
+                //
+                cv::Mat rigid_trans;
+                try {
+                    cv::Mat rigid_trans = cv::estimateRigidTransform(prev_point, curr_point, false);
+                    Homo_history.append(rigid_trans);
+                } catch (...) {
+                   qDebug() << "SHIIIIIIITTT>>>>>>>>cv::resize" ;
+                }
+                //cv::Mat rigid_trans = cv::estimateRigidTransform(prev_point, curr_point, false);
+               // Homo_history.append(rigid_trans);
 
                 mean_depth_diff.append(prev_mean_depth - curr_mean_depth);
                 qDebug() << "## prev depth, curr depth, diff" << prev_mean_depth << " " << curr_mean_depth << " " << prev_mean_depth - curr_mean_depth;
