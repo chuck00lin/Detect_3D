@@ -1,4 +1,5 @@
-# Fruit-Tracking-with-Realsense-D435
+# Fruit-Tracking-with-Realsense-D435  
+# Main Author: Yi Hsuan Huang
 
 ## Tracking fruits with realsense D435
 
